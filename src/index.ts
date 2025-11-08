@@ -16,8 +16,9 @@ class ExampleMentraOSApp extends AppServer {
   }
 
   protected async onSession(session: AppSession, sessionId: string, userId: string): Promise<void> {
-    // Show welcome message
-    session.layouts.showTextWall("Example App is ready!");
+    // Show the custom stats message
+    session.layouts.showTextWall(`Aether stats: 
+HR: 78`);
 
     // Handle real-time transcription
     // requires microphone permission to be set in the developer console
