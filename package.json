@@ -12,7 +12,9 @@
   "description": "",
   "dependencies": {
     "@mentra/sdk": "latest",
+    "axios": "^1.13.2",
     "express": "^4.21.2",
+    "sharp": "^0.34.5",
     "ws": "^8.18.1"
   },
   "devDependencies": {
