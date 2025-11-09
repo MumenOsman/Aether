@@ -7,6 +7,8 @@ The app was developed for a conceptual HUD skiing goggles, which was developed d
 
 The application is built as the first app for the goggles to grant efficiency and hands-free use, leveraging head gestures to seamlessly switch between detailed directions and a navigational compass view.
 
+## Demo: https://youtube.com/shorts/tIluT9Mz8tw
+
 ## Features
 
 - Turn-by-Turn Directions: Fetches routes and instructions using the OpenRouteService API.
