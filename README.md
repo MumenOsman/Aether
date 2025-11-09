@@ -1,64 +1,33 @@
-# MentraOS-Display-Example-App
 
-### Install MentraOS on your phone
+# Aether
 
-MentraOS install links: [mentra.glass/install](https://mentra.glass/install)
+Aether is a turn-by-turn navigation application designed specifically for the MentraOS augmented reality platform. It provides clear, actionable instructions and contextual information directly into the user's field of view.
 
-### (Easiest way to get started) Set up ngrok
+The app was developed for a conceptual HUD skiing goggles, which was developed during the Cassini Hackathon. 
 
-1. `brew install ngrok`
+The application is built as the first app for the goggles to grant efficiency and hands-free use, leveraging head gestures to seamlessly switch between detailed directions and a navigational compass view.
 
-2. Make an ngrok account
+## Features
 
-3. [Use ngrok to make a static address/URL](https://dashboard.ngrok.com/)
+- Turn-by-Turn Directions: Fetches routes and instructions using the OpenRouteService API.
+- Actionable Arrows Instead of verbose instructions, for glanceable comprehension.
+- Head Gesture Control: Look up and down for compass view
+- Clean Interface with no distractions for the athlete
 
-### Register your App with MentraOS
+## Tech Stack
 
-1. Navigate to [console.mentra.glass](https://console.mentra.glass/)
+- Platform: MentraOS SDK
+- Language: TypeScript
+- Runtime: Node.js / Bun
+- Routing Service: OpenRouteService
+- Networking: axios
 
-2. Click "Sign In", and log in with the same account you're using for MentraOS
+## Usage
 
-3. Click "Create App"
+Once the app is launched and connected on the MentraOS glasses, the experience is driven by your movement and head position.
 
-4. Set a unique package name like `com.yourName.yourAppName`
-
-5. For "Public URL", enter your Ngrok's static URL
-
-6. In the edit app screen, add the microphone permission
-
-### Get your App running!
-
-1. [Install bun](https://bun.sh/docs/installation)
-
-2. Create a new repo from this template using the `Use this template` dropdown in the upper right or the following command: `gh repo create --template Mentra-Community/MentraOS-Cloud-Example-App`
-
-    ![Create repo from template](https://github.com/user-attachments/assets/c10e14e8-2dc5-4dfa-adac-dd334c1b73a5)
-
-3. Clone your new repo locally: `git clone <your-repo-url>`
-
-4. cd into your repo, then type `bun install`
-
-5. Set up your environment variables:
-   * Create a `.env` file in the root directory by copying the example: `cp .env.example .env`
-   * Edit the `.env` file with your app details:
-     ```
-     PORT=3000
-     PACKAGE_NAME=com.yourName.yourAppName
-     MENTRAOS_API_KEY=your_api_key_from_console
-     ```
-   * Make sure the `PACKAGE_NAME` matches what you registered in the MentraOS Console
-   * Get your `API_KEY` from the MentraOS Developer Console
-
-6. Run your app with `bun run dev`
-
-7. To expose your app to the internet (and thus MentraOS) with ngrok, run: `ngrok http --url=<YOUR_NGROK_URL_HERE> 3000`
-    * `3000` is the port. It must match what is in the app config. For example, if you entered `port: 8080`, use `8080` for ngrok instead.
-
-
-### Next Steps
-
-Check out the full documentation at [docs.mentra.glass](https://docs.mentra.glass/core-concepts)
-
-#### Subscribing to events
-
-You can listen for transcriptions, translations, and other events within the onSession function.
+| Action                | Result on Glasses                                                           | Description                                                            |
+| --------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Normal View/Look Down | `[ARROW] [Instruction] (Distance)`                                          | Displays the next turn instruction and distance to maneuver.           |
+| Look Up               | `-- DIRECTION OF TRAVEL -- [Cardinal Direction]`                            | Shows your current GPS-calculated facing direction (N, SE, W, etc.).   |
+| Moving                | Updates the current instruction and distance as you approach the next turn. | The app tracks your location and refreshes the route every 10 seconds. |
