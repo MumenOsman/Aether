@@ -5,6 +5,8 @@ Aether is a turn-by-turn navigation application designed specifically for the Me
 
 The app was developed for a conceptual HUD skiing goggles, which was developed during the Cassini Hackathon. 
 
+
+
 The application is built as the first app for the goggles to grant efficiency and hands-free use, leveraging head gestures to seamlessly switch between detailed directions and a navigational compass view.
 
 ## Demo: https://youtube.com/shorts/tIluT9Mz8tw
